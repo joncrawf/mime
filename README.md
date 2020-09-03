@@ -4,7 +4,7 @@ This is the code for the MSc Project "Learning to Explore Via Meta Reinforcement
 
 The repo mainly contains the implementation of MIME. a gradient-based meta-RL model augmented with strong exploration capabilities.
 
-#### MAML (left) vs MIME (right) on the Dog-Feeding Robot Navigation task
+#### MAML (left/top) vs MIME (right/bottom) trajectories on the Dog-Feeding Robot Navigation task
 <img src="images/maml_dogs.png" width="40%"> 
 <img src="images/mime_dogs.png" width="40%">
 

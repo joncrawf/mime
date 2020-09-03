@@ -1,0 +1,84 @@
+# General
+# -------
+# Name of the environment.
+env-name: "2DNavigationSparse-v0"
+
+# Additional parameters for the environment (eg. bound for task sampling).
+env-kwargs:
+  low: 8.0
+  high: 9.0
+  sparse: false
+
+# Discount factor gamma.
+gamma: 1.0
+
+# Discount factor lambda used in "Generalized Advantage Estimation" (GAE).
+gae-lambda: 1.0
+
+# If "true", then the first order approximation of MAML is applied.
+first-order: false
+
+# Policy network
+# --------------
+# Number of hidden units in each layer.
+hidden-sizes: [64,64] # [64, 64]
+
+# Non-linear activation function to apply after each hidden layer.
+nonlinearity: "tanh"
+
+# Task-specific
+# -------------
+# Number of trajectories to sample for each task.
+fast-batch-size: 20 #20
+
+# Number of gradient steps in the inner loop / fast adaptation.
+num-steps: 1
+
+# Step size for each gradient step in the inner loop / fast adaptation.
+fast-lr: 0.05  # 0.1 # tris / bandits-tris: 0.05
+
+# Optimization
+# ------------
+# Number of outer-loop updates (ie. number of batches of tasks).
+num-batches: 100
+
+# Number of tasks in each batch of tasks.
+meta-batch-size: 10 # 20 #1
+
+# TRPO-specific
+# -------------
+# Size of the trust-region.
+max-kl: 1.0e-2
+
+# Number of iterations of Conjugate Gradient.
+cg-iters: 10
+
+# Value of the damping in Conjugate Gradient.
+cg-damping: 1.0e-5
+
+# Maximum number of steps in the line search.
+ls-max-steps: 15
+
+# Ratio to use for backtracking during the line search.
+ls-backtrack-ratio: 0.8
+
+# Dynamics (or Inverse Dynamics) inner-loop learning rate
+# dyn-lr: 0.1 # originally: 0.00001
+
+# List of Dynamics (or Inverse Dynamics) hidden layers sizes
+dyn-hidden: [32]
+
+# Dynamics (or Inverse Dynamics) outer-loop learning rate
+dyn-fast-lr: 0.0001 # 1 # bandits 0.05 # bandits-bis: 0.01 # 0.03
+
+# Eta params (either adaptable or not)
+adaptable-eta: 0.1
+eta-lr: 1000
+
+pre-epochs: 3
+
+normalize-spaces: false
+eta: 0.3
+
+dyn-second-order: false
+dyn-prior-sd: 0.01

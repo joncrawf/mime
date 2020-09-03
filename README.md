@@ -4,6 +4,10 @@ This is the code for the MSc Project "Learning to Explore Via Meta Reinforcement
 
 The repo mainly contains the implementation of MIME. a gradient-based meta-RL model augmented with strong exploration capabilities.
 
+#### MAML (left) vs MIME (right) on the Dog-Feeding Robot Navigation task
+<img src="images/maml_dogs.png" width="40%"> 
+<img src="images/mime_dogs.png" width="40%">
+
 ## Getting started
 
 #### Requirements
@@ -23,10 +27,31 @@ pip install -r requirements.txt
 
 ## Usage
 
+#### Available Environments
+
+The environment used in the MSc Project Results chapter are available through the configs file under the folder `configs/msc_project`, and they are:
+
+**2D Navigation**
+
+- Wide-Ring Goals
+- Hard-Exploration Goals
+- Close-Ring Goals
+- Dog-Feeding Robot
+
+**Swing-Up Pendulum**
+
+- Dense
+- Sparse
+
+**Meta-World** 
+
+- ML10
+
+
 #### Training
 You can use the [`train.py`](train.py) script in order to train the model:
 ```
-python train.py  --use-vime --adapt-eta --config configs/mime/metaworld.yaml --output-folder ../mime-experiments/metaworld_ml10/mime/4 --seed 4 --num-workers 6
+python train.py  --use-vime --adapt-eta --config configs/msc_project/dog-feeding-robot-navigation.yaml --output-folder ../mime-experiments/metaworld_ml10/mime/0 --seed 0 --num-workers 6
 ```
 
 The relevant flags to switch models are:
@@ -79,10 +104,16 @@ To visualize Tensorboard results you can use:
 tensorboard --logdir ../mime-experiments/ --samples_per_plugin images=100
 ```
 
+#### PEARL
+
+The environments and the config files for PEARL are available under the `pearl` folder.
+
+The original PEARL implementation can be found [here](https://github.com/katerakelly/oyster).
+
 ## Acknowledgments
 
 The initial MAML implementation that has been here reworked and expandend in many ways was originally developed by Tristan Deleu as a PyTorch re-implementation of MAML.
 
 I would like to sincerely thank him for its clean and well-organised code. Its work is available at [this repository](https://github.com/tristandeleu/pytorch-maml-rl).
 
-I also would like to thank the researchers that created the Meta-World benchmark 
+I also would like to thank the researchers that created the Meta-World ([paper](https://arxiv.org/abs/1910.10897)) benchmark 

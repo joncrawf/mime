@@ -48,6 +48,7 @@ def get_dynamics_for_env(env, use_vime, use_inv_vime, device, config, benchmark=
 
     # Dynamics (VIME)
     if use_vime:
+        # For Meta-World ML10 the observation space is reduced by 6 dimensions for the dynamics, since all the values for these dimension were zeros 
         n_in = env.observation_space.shape[0] + action_dim if not benchmark else env.observation_space.shape[0] + action_dim - 6
         n_out = env.observation_space.shape[0] if not benchmark else env.observation_space.shape[0] - 6
         dynamics = BNN(

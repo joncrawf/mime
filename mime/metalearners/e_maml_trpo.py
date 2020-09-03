@@ -118,6 +118,7 @@ class E_MAMLTRPO(GradientBasedMetaLearner):
                 losses -= weighted_mean(train_ratio * valid_episodes.advantages,
                               lengths=valid_episodes.lengths)
 
+                # TODO: This causes errors for more than 1 step, check if want to use multiple inner-cycle steps
                 if len(train_futures) > 1:
                     inner_loss = reinforce_loss(self.policy,
                                                 train_episodes,

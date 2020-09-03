@@ -1,0 +1,25 @@
+{
+    "env_name": "pendulum",
+    "n_train_tasks": 20,
+    "n_eval_tasks": 4,
+    "env_params": {
+        "n_tasks": 24
+    }
+    ,
+    "algo_params": {
+        "use_next_obs_in_context": true,
+        "meta_batch": 10,
+        "num_initial_steps": 2000,
+        "num_steps_prior": 400,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_train_steps_per_itr": 4000,
+        "num_evals": 2,
+        "num_steps_per_eval": 600,
+        "num_exp_traj_eval": 2,
+        "embedding_batch_size": 100,
+        "embedding_mini_batch_size": 100,
+        "max_path_length": 50,
+        "discount": 0.99
+    }
+}

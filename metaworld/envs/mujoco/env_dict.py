@@ -179,9 +179,11 @@ MEDIUM_MODE_CLS_DICT = OrderedDict((
             ('door-close-v1', SawyerDoorCloseEnv),
             ('shelf-place-v1', SawyerShelfPlaceEnv),
             ('sweep-into-v1', SawyerSweepIntoGoalEnv),
-            ('lever-pull-v1', SawyerLeverPullEnv,)))
+            ('lever-pull-v1', SawyerLeverPullEnv)))
     )
 ))
+
+
 medium_mode_train_args_kwargs = {
     key: dict(args=[], kwargs={
         'task_id' : list(ALL_V1_ENVIRONMENTS.keys()).index(key),

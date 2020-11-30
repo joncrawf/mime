@@ -25,6 +25,19 @@ def _assert_task_is_set(func):
     return inner
 
 
+def _sparse_task(func):
+    def inner(*args, **kwargs):
+
+        ob, reward, at_max_path_length, info = func(*args, **kwargs)
+
+        if not info['reachDist'] < 0.05:
+           reward = 0.
+           info['epRew'] = 0.
+
+        return ob, reward, at_max_path_length, info
+    return inner
+
+
 DEFAULT_SIZE = 500
 
 class MujocoEnv(gym.Env, abc.ABC):

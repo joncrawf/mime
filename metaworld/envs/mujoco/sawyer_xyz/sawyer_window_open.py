@@ -2,7 +2,7 @@ import numpy as np
 from gym.spaces import  Box
 
 from metaworld.envs.env_util import get_asset_full_path
-from metaworld.envs.mujoco.sawyer_xyz.base import SawyerXYZEnv, _assert_task_is_set
+from metaworld.envs.mujoco.sawyer_xyz.base import SawyerXYZEnv, _assert_task_is_set, _sparse_task
 
 
 class SawyerWindowOpenEnv(SawyerXYZEnv):
@@ -53,6 +53,7 @@ class SawyerWindowOpenEnv(SawyerXYZEnv):
         return get_asset_full_path('sawyer_xyz/sawyer_window_horizontal.xml')
 
     @_assert_task_is_set
+    @_sparse_task
     def step(self, action):
         self.set_xyz_action(action[:3])
         self.do_simulation([action[-1], -action[-1]])

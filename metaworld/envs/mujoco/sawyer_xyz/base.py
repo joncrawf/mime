@@ -7,7 +7,7 @@ from gym.spaces import Discrete
 import mujoco_py
 import numpy as np
 
-from metaworld.envs.mujoco.mujoco_env import MujocoEnv, _assert_task_is_set
+from metaworld.envs.mujoco.mujoco_env import MujocoEnv, _assert_task_is_set, _sparse_task
 
 
 class SawyerMocapBase(MujocoEnv, metaclass=abc.ABCMeta):
